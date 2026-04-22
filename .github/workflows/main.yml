@@ -1,4 +1,4 @@
-name: My First Workflow
+name: Python CI Pipeline
 
 on: push
 
@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step 1 - Print message
-        run: echo "Hello DevOps"
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Step 2 - Show date
-        run: date
+      - name: Setup Python
+        run: sudo apt-get install python3 -y
 
-      - name: Step 3 - List files
-        run: ls -la
+      - name: Run Python App
+        run: python3 app.py
